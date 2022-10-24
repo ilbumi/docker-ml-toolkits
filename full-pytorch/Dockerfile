@@ -1,5 +1,6 @@
 ARG IMAGE_PREFIX=ilbumi/python-toolkit
-FROM ${IMAGE_PREFIX}:jupyter
+ARG VERSION=NONE
+FROM ${IMAGE_PREFIX}:${VERSION}-jupyter
 USER root
 
 COPY requirements.txt requirements.txt
