@@ -1,0 +1,22 @@
+# NLP
+transformers
+spacy[cuda-autodetect,transformers,lookups]
+gensim
+thefuzz[speedup]
+
+# Graphs
+networkx
+igraph
+pydot
+-f https://data.pyg.org/whl/torch-1.12.0+cu116.html
+torch-scatter
+torch-sparse
+torch-cluster
+torch-spline-conv
+torch-geometric
+pykeen
+
+# BioTools
+biopython
+biothings-client
+ProDy

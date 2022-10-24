@@ -8,3 +8,6 @@ build:
 	docker build ./jup-pytorch \
 		--build-arg IMAGE_PREFIX=$(IMAGE_PREFIX) \
                 -t $(IMAGE_PREFIX):jupyter
+	docker build ./full-pytorch \
+                --build-arg IMAGE_PREFIX=$(IMAGE_PREFIX) \
+                -t $(IMAGE_PREFIX):full
