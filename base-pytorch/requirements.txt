@@ -24,5 +24,7 @@ mlflow==1.30.0
 
 ## Data IO
 boto3
-
+SQLAlchemy
+psycopg2-binary
+pymongo
 
