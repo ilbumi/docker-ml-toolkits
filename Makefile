@@ -1,6 +1,6 @@
 BASE_IMAGE=pytorch/pytorch:1.12.1-cuda11.3-cudnn8-runtime
 IMAGE_PREFIX=ilbumi/python-toolkit
-VERSION=22.10.2
+VERSION=22.10.3
 
 build:
 	docker build ./base-pytorch \
