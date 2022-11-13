@@ -5,6 +5,7 @@ lightning-flash==0.8.0
 
 # ML packages
 scikit-learn
+dask[complete]
 imbalanced-learn
 xgboost==1.6.2
 umap-learn==0.5.3
@@ -28,4 +29,3 @@ boto3
 SQLAlchemy
 psycopg2-binary
 pymongo
-
