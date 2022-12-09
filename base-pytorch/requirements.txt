@@ -1,28 +1,28 @@
 # torch toolkit is already installed in the base docker image
 # PyTorch base tools
-pytorch-lightning==1.7.7
-lightning-flash==0.8.0
+pytorch-lightning
+lightning-flash
 
 # ML packages
 scikit-learn
 dask[complete]
 imbalanced-learn
-xgboost==1.6.2
-umap-learn==0.5.3
+xgboost
+umap-learn
 trimap
-hdbscan==0.8.28
-optuna==3.0.3
+hdbscan
+optuna
 ray[tune]
-statsmodels==0.13.2 
+statsmodels 
 
 # Visualization
 seaborn
-altair==4.2.0
-vega-datasets==0.9.0
+altair
+vega-datasets
 
 # Logging and configuration
-hydra-core==1.2.0
-mlflow==1.30.0
+hydra-core
+mlflow
 
 ## Data IO
 boto3

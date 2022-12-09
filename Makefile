@@ -1,21 +1,25 @@
-BASE_IMAGE=pytorch/pytorch:1.12.1-cuda11.3-cudnn8-runtime
+BASE_IMAGE=pytorch/pytorch:1.13.0-cuda11.6-cudnn8-runtime
 IMAGE_PREFIX=ilbumi/python-toolkit
-VERSION=22.11.1
+VERSION=22.12.1
 export DOCKER_BUILDKIT=1
 
 build:
 	docker build ./base-pytorch \
+		--network=host \
 		--build-arg BASE_IMAGE=$(BASE_IMAGE) \
 		-t $(IMAGE_PREFIX):$(VERSION)-base
 	docker build ./jup-pytorch \
+		--network=host \
 		--build-arg IMAGE_PREFIX=$(IMAGE_PREFIX) \
 		--build-arg VERSION=$(VERSION) \
                 -t $(IMAGE_PREFIX):$(VERSION)-jupyter
 	docker build ./full-pytorch \
+		--network=host \
                 --build-arg IMAGE_PREFIX=$(IMAGE_PREFIX) \
 		--build-arg VERSION=$(VERSION) \
                 -t $(IMAGE_PREFIX):$(VERSION)-full
 	docker build ./dev-pytorch \
+		--network=host \
                 --build-arg IMAGE_PREFIX=$(IMAGE_PREFIX) \
 		--build-arg VERSION=$(VERSION) \
                 -t $(IMAGE_PREFIX):$(VERSION)-dev
