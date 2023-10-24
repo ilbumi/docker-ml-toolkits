@@ -7,8 +7,54 @@ You can pull the images from [DockerHub](https://hub.docker.com/repository/docke
 ## base-pytorch
 An image with basic packages
 
+### Package List
+
+#### Machine Learning
+
+- Pytorch 2.0.1 CUDA 11.7
+- Pytorch Lightning
+- scikit-learn
+- Dask
+- imbalanced-learn
+- XGBoost
+- HDBSCAN
+- UMAP-learn
+- Ray
+- Statsmodels
+
+#### Visualization
+
+- Seaborn
+- Altair
+- Vega-datasets
+
+#### Experiment Management
+
+- Hydra
+- MLFlow
+
+#### Data Storage
+
+- Boto3
+- SQLAlchemy
+- psycopg2
+- pymongo
+
 ## jup-pytorch
 An image with jupyter installed
+
+### Package List
+
+The same, as in base and Dev packages
+
+#### Dev 
+- pytest
+- pytest-cov
+- flake8
+- black 
+- isort
+- mypy
+- ruff
 
 ## full-pytorch
 An image with all the necessary packages

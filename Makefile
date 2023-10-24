@@ -1,6 +1,6 @@
 BASE_IMAGE=pytorch/pytorch:1.13.0-cuda11.6-cudnn8-runtime
 IMAGE_PREFIX=ilbumi/python-toolkit
-VERSION=22.12.1
+VERSION=23.10.1
 export DOCKER_BUILDKIT=1
 
 build:
