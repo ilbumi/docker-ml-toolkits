@@ -1,6 +1,6 @@
 # NLP
 transformers
-spacy[cuda-autodetect,transformers,lookups]
+spacy[cuda11x,transformers,lookups]
 gensim
 thefuzz[speedup]
 
