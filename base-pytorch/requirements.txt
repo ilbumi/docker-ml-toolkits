@@ -1,7 +1,6 @@
 # torch toolkit is already installed in the base docker image
 # PyTorch base tools
 pytorch-lightning
-lightning-flash
 
 # ML packages
 scikit-learn
@@ -9,7 +8,6 @@ dask[complete]
 imbalanced-learn
 xgboost
 umap-learn
-trimap
 hdbscan
 optuna
 ray[tune]
