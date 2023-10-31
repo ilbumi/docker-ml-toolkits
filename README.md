@@ -14,24 +14,14 @@ An image with basic packages
 - Pytorch 2.0.1 CUDA 11.7
 - Pytorch Lightning
 - scikit-learn
-- Dask
-- imbalanced-learn
-- XGBoost
-- HDBSCAN
-- UMAP-learn
-- Ray
-- Statsmodels
+- pandas
+- numpy
+- scipy
 
 #### Visualization
 
 - Seaborn
-- Altair
-- Vega-datasets
-
-#### Experiment Management
-
-- Hydra
-- MLFlow
+- Matplotlib
 
 #### Data Storage
 
