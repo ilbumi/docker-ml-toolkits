@@ -1,4 +1,3 @@
-name: to_docker2
 channels:
   - pytorch
   - nvidia
@@ -274,4 +273,3 @@ dependencies:
       - torch-scatter==2.1.2+pt20cu117
       - torch-sparse==0.6.18+pt20cu117
       - torch-spline-conv==1.2.2+pt20cu117
-prefix: /home/ilbumi/miniforge3/envs/to_docker2
