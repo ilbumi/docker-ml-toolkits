@@ -1,4 +1,5 @@
 channels:
+  - pyg
   - pytorch
   - nvidia
   - conda-forge
@@ -264,6 +265,7 @@ dependencies:
   - pycparser=2.21=pyhd8ed1ab_0
   - pydantic=2.5.0=pyhd8ed1ab_0
   - pydantic-core=2.14.1=py311h46250e7_0
+  - pyg=2.4.0=py311_torch_2.0.0_cu117
   - pygments=2.16.1=pyhd8ed1ab_0
   - pymongo=4.5.0=py311hb755f60_1
   - pyparsing=3.1.1=pyhd8ed1ab_0
@@ -368,6 +370,7 @@ dependencies:
   - pip:
       - --find-links https://data.pyg.org/whl/torch-2.0.0+cu117.html
       - pyg-lib==0.3.1+pt20cu117
+      - spacy-lookups-data==1.0.5
       - torch-cluster==1.6.3+pt20cu117
       - torch-scatter==2.1.2+pt20cu117
       - torch-sparse==0.6.18+pt20cu117
