@@ -1,11 +1,7 @@
-ARG IMAGE_PREFIX=ilbumi/python-toolkit
-ARG VERSION=NONE
-FROM ${IMAGE_PREFIX}:${VERSION}-jupyter
-USER root
-
-COPY requirements.txt requirements.txt
-RUN --mount=type=cache,target=/root/.cache \
-	pip3 install -r requirements.txt
-
-RUN mkdir /projects
-WORKDIR /projects
+ARG BASE_IMAGE=mambaorg/micromamba:jammy-cuda-11.7.1
+FROM ${BASE_IMAGE}
+RUN mkdir /home/mambauser/data
+COPY --chown=$MAMBA_USER:$MAMBA_USER environment.yaml /tmp/env.yaml
+ARG MAMBA_DOCKERFILE_ACTIVATE=1
+RUN micromamba install -y --file env.yaml && \
+     micromamba clean --all --yes
