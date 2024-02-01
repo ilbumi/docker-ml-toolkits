@@ -33,19 +33,6 @@ An image with basic packages
 ## jup-pytorch
 An image with jupyter installed
 
-### Package List
-
-The same, as in base and Dev packages
-
-#### Dev 
-- pytest
-- pytest-cov
-- flake8
-- black 
-- isort
-- mypy
-- ruff
-
 ## full-pytorch
 An image with all the necessary packages
 
