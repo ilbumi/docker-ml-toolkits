@@ -1,0 +1,18 @@
+ARG BASE_IMAGE=mambaorg/micromamba:jammy-cuda-11.7.1
+FROM ${BASE_IMAGE}
+
+USER root
+RUN apt-get update && apt-get install -y \
+    git build-essential curl wget inetutils-ping \
+    && apt-get clean
+USER ${MAMBA_USER}
+
+RUN mkdir /home/mambauser/projects
+RUN mkdir /home/mambauser/data
+
+COPY --chown=$MAMBA_USER:$MAMBA_USER environment.yaml /tmp/env.yaml
+ARG MAMBA_DOCKERFILE_ACTIVATE=1
+RUN --mount=type=cache,target=/opt/conda/pkgs micromamba install -y --file /tmp/env.yaml
+
+WORKDIR /home/mambauser
+EXPOSE 8888

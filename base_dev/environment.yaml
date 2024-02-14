@@ -1,0 +1,26 @@
+name: base
+channels:
+  - conda-forge
+dependencies:
+  - python[version='<3.12']
+  - pandas
+  - pyarrow
+  - openpyxl
+  - sqlalchemy
+  - psycopg2-binary
+  - boto3
+  - pymongo
+  - ca-certificates
+  - openssl
+  - scipy
+  - simpy
+  - matplotlib
+  - seaborn
+  - altair
+  - vega_datasets
+  - certifi
+  - scikit-learn
+  - imbalanced-learn
+  - catboost
+  - xgboost
+  - wandb
