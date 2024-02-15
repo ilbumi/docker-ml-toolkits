@@ -10,8 +10,8 @@ RUN apt-get update && apt-get install -y \
     apt-get clean
 RUN cd /tmp && \
     wget https://github.com/amkozlov/raxml-ng/releases/download/1.2.1/raxml-ng_v1.2.1_linux_x86_64.zip \
-    -O raxml-ng.zip && unzip raxml-ng.zip \
-    mv raxml-ng/raxml-ng /usr/local/bin/raxml-ng
+    -O raxml-ng.zip && unzip raxml-ng.zip &&\
+    mv raxml-ng /usr/local/bin/raxml-ng
 USER ${MAMBA_USER}
 
 COPY --chown=$MAMBA_USER:$MAMBA_USER environments/python.yaml /tmp/python.yaml
