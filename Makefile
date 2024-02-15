@@ -4,25 +4,18 @@ VERSION=24.02.1
 export DOCKER_BUILDKIT=1
 
 build:
-	docker build . \
-		--file Dockerfile.000.devbase \
-		--network=host \
-		--build-arg BASE_IMAGE=$(BASE_IMAGE) \
-		-t $(IMAGE_PREFIX):$(VERSION)-devbase
-	docker build . \
-		--file Dockerfile.001.devtorch \
-		--network=host \
-		--build-arg IMAGE_PREFIX=$(IMAGE_PREFIX) \
-		--build-arg VERSION=$(VERSION) \
-		-t $(IMAGE_PREFIX):$(VERSION)-devtorch
-	docker build . \
-		--file Dockerfile.002.devdeepbio \
-		--network=host \
-		--build-arg IMAGE_PREFIX=$(IMAGE_PREFIX) \
-		--build-arg VERSION=$(VERSION) \
-		-t $(IMAGE_PREFIX):$(VERSION)-devdeepbio
+	for file in Dockerfile.*; do \
+		docker build . \
+			--file $$file \
+			--network=host \
+			--build-arg BASE_IMAGE=$(BASE_IMAGE) \
+			--build-arg IMAGE_PREFIX=$(IMAGE_PREFIX) \
+			--build-arg VERSION=$(VERSION) \
+			-t $(IMAGE_PREFIX):$(VERSION)-$$(echo $$file | sed -r "s/Dockerfile.[0-9]{3}.//"); \
+	done
 
 push:
-	docker push $(IMAGE_PREFIX):$(VERSION)-devbase
-	docker push $(IMAGE_PREFIX):$(VERSION)-devtorch
-	docker push $(IMAGE_PREFIX):$(VERSION)-devdeepbio
+	for file in Dockerfile.*; do \
+		docker push $(IMAGE_PREFIX):$(VERSION)-$$(echo $$file | sed -r "s/Dockerfile.[0-9]{3}.//")
+	done
+	
