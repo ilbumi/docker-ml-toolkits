@@ -6,9 +6,10 @@ FROM ${IMAGE_PREFIX}:${VERSION}-devbase
 
 COPY --chown=$MAMBA_USER:$MAMBA_USER environments/pytorch.yaml /tmp/env.yaml
 ARG MAMBA_DOCKERFILE_ACTIVATE=1
-RUN --mount=type=cache,target=/opt/conda/pkgs \
-    micromamba install -y \
-    --file /tmp/env.yaml
+RUN --mount=type=cache,target=/home/mambauser/.mamba \
+    --mount=type=cache,target=/home/mambauser/.cache \
+    micromamba install -y --file /tmp/env.yaml && \
+    micromamba clean --all --yes
 
 EXPOSE 8888
 WORKDIR /home/mambauser
