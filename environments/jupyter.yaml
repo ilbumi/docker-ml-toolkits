@@ -1,0 +1,11 @@
+name: base
+channels:
+  - conda-forge
+dependencies:
+  - jupyterlab
+  - isort
+  - black
+  - ipywidgets
+  - tqdm
+  - pip:
+      - jupyterlab-code-formatter

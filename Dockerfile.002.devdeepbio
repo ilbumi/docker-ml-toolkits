@@ -1,0 +1,24 @@
+ARG IMAGE_PREFIX=ilbumi/python-toolkit
+ARG VERSION=UNKNOWN
+ARG MAMBA_DOCKERFILE_ACTIVATE=1
+
+FROM ${IMAGE_PREFIX}:${VERSION}-devtorch
+
+USER root
+RUN apt-get update && apt-get install -y \
+    zip unzip mafft ncbi-entrez-direct ncbi-blast+ && \
+    apt-get clean
+RUN cd /tmp && \
+    wget https://github.com/amkozlov/raxml-ng/releases/download/1.2.1/raxml-ng_v1.2.1_linux_x86_64.zip \
+    -O raxml-ng.zip && unzip raxml-ng.zip &&\
+    mv raxml-ng /usr/local/bin/raxml-ng
+USER ${MAMBA_USER}
+
+COPY --chown=$MAMBA_USER:$MAMBA_USER environments/biology.yaml /tmp/env.yaml
+ARG MAMBA_DOCKERFILE_ACTIVATE=1
+RUN --mount=type=cache,target=/opt/conda/pkgs \
+    micromamba install -y \
+    --file /tmp/env.yaml
+
+EXPOSE 8888
+WORKDIR /home/mambauser

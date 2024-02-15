@@ -1,0 +1,6 @@
+name: base
+channels:
+  - conda-forge
+dependencies:
+ - python[version='<3.12']
+ - pyyaml

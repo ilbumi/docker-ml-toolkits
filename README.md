@@ -1,40 +1,118 @@
 # docker-ml-toolkits
+
 A set of ML toolkit docker images
 
 You can pull the images from [DockerHub](https://hub.docker.com/repository/docker/ilbumi/python-toolkit)
 
-# Kits
-## base-pytorch
-An image with basic packages
+## Kits
 
-### Package List
+### Base Dev Image (devbase)
 
-#### Machine Learning
+#### Non-python Tools
 
-- Pytorch 2.0.1 CUDA 11.7
-- Pytorch Lightning
-- scikit-learn
-- pandas
-- numpy
-- scipy
+- Git
+- CURL
+- ping
+- build-essential
 
-#### Visualization
+#### Python Tools
 
-- Seaborn
-- Matplotlib
+The image is based on Python 3.11
 
-#### Data Storage
+##### Data Handling
 
-- Boto3
+- Pandas
+- PyArrow
+- Openpyxl
 - SQLAlchemy
-- psycopg2
+- psycopg2-bin
+- boto3
 - pymongo
 
-## jup-pytorch
-An image with jupyter installed
+##### Calculation
 
-## full-pytorch
-An image with all the necessary packages
+- NumPy
+- SciPy
+- SimPy
 
-## dev-pytorch
-An image for Dockerized VS Code development
+##### Visualization
+
+- matplotlib
+- Seaborn
+- Altair
+
+##### ML
+
+- scikit-learn
+- xgboost
+- catboost
+- imbalanced-learn
+
+##### Dev and Configuration
+
+- wandb
+- pydantic
+- hydra-core
+- ruff
+- mypy
+- bandit
+- pytest
+
+### PyTorch Dev Image (devtorch)
+
+All the tools from the [Base Dev Image](#base-dev-image-devbase) are included. Other included packages are listed below.
+
+#### Python Tools
+
+##### Data Handling
+
+- datasets
+- tokenizers
+
+##### ML
+
+- PyTorch
+- Transformers
+- Timm
+- PyTorch Lightning
+
+### DL in Biology (devdeepbio)
+
+All the tools from the [PyTorch Dev Image](#pytorch-dev-image-devtorch) are included. Other included packages are listed below.
+
+#### Non-python Tools
+
+- mafft
+- ncbi-entrez-direct
+- ncbi-blast+
+- RAxML-NG
+
+#### Python Tools
+
+##### Biology Toolkit
+
+- Biopython
+- ProDy
+- Scikit-Bio
+
+### DL in Biology, Jupyter version (jupdeepbio)
+
+All the tools from the [DL in Biology](#dl-in-biology-devdeepbio) are included. Other included packages are listed below.
+
+#### Python Tools
+
+##### Jupyter
+
+- Jupyter Lab 
+- ipywidgets
+- tqdm
+- jupyterlab-code-formatter
+
+### DL in Biology, Jupyter version, with graphs (jupdeepbiofull)
+
+All the tools from the [DL in Biology, Jupyter version](#dl-in-biology-jupyter-version-jupdeepbio) are included. Other included packages are listed below.
+
+#### Python Tools
+
+- PyTorch Geometric
+- igraph
