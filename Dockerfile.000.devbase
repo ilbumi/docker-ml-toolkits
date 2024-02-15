@@ -2,9 +2,9 @@ ARG BASE_IMAGE=mambaorg/micromamba:jammy-cuda-11.7.1
 FROM ${BASE_IMAGE}
 
 USER root
-RUN --mount=type=cache,target=/var/cache/apt \
-    apt-get update && apt-get install -y \
-    git build-essential curl wget inetutils-ping
+RUN apt-get update && apt-get install -y \
+    git build-essential curl wget inetutils-ping && \
+    apt-get clean
 USER ${MAMBA_USER}
 
 RUN mkdir /home/mambauser/projects

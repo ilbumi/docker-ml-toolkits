@@ -12,14 +12,12 @@ build:
 	docker build . \
 		--file Dockerfile.001.devtorch \
 		--network=host \
-		--build-arg BASE_IMAGE=$(BASE_IMAGE) \
 		--build-arg IMAGE_PREFIX=$(IMAGE_PREFIX) \
 		--build-arg VERSION=$(VERSION) \
 		-t $(IMAGE_PREFIX):$(VERSION)-devtorch
 	docker build . \
 		--file Dockerfile.002.devdeepbio \
 		--network=host \
-		--build-arg BASE_IMAGE=$(BASE_IMAGE) \
 		--build-arg IMAGE_PREFIX=$(IMAGE_PREFIX) \
 		--build-arg VERSION=$(VERSION) \
 		-t $(IMAGE_PREFIX):$(VERSION)-devdeepbio
