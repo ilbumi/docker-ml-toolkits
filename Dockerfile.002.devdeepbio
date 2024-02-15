@@ -14,10 +14,10 @@ RUN cd /tmp && \
     mv raxml-ng/raxml-ng /usr/local/bin/raxml-ng
 USER ${MAMBA_USER}
 
-COPY --chown=$MAMBA_USER:$MAMBA_USER environments/base.yaml /tmp/python.yaml
+COPY --chown=$MAMBA_USER:$MAMBA_USER environments/python.yaml /tmp/python.yaml
 COPY --chown=$MAMBA_USER:$MAMBA_USER environments/base.yaml /tmp/base.yaml
 COPY --chown=$MAMBA_USER:$MAMBA_USER environments/pytorch.yaml /tmp/pytorch.yaml
-COPY --chown=$MAMBA_USER:$MAMBA_USER environments/pytorch.yaml /tmp/biology.yaml
+COPY --chown=$MAMBA_USER:$MAMBA_USER environments/biology.yaml /tmp/biology.yaml
 COPY --chown=$MAMBA_USER:$MAMBA_USER scripts/merge_yamls.py /tmp/merge_yamls.py
 ARG MAMBA_DOCKERFILE_ACTIVATE=1
 RUN python /tmp/merge_yamls.py /tmp/env.yaml /tmp/python.yaml /tmp/base.yaml /tmp/pytorch.yaml /tmp/biology.yaml
