@@ -94,3 +94,25 @@ All the tools from the [PyTorch Dev Image](#pytorch-dev-image-devtorch) are incl
 - Biopython
 - ProDy
 - Scikit-Bio
+
+### DL in Biology, Jupyter version (jupdeepbio)
+
+All the tools from the [DL in Biology](#dl-in-biology-devdeepbio) are included. Other included packages are listed below.
+
+#### Python Tools
+
+##### Jupyter
+
+- Jupyter Lab 
+- ipywidgets
+- tqdm
+- jupyterlab-code-formatter
+
+### DL in Biology, Jupyter version, with graphs (jupdeepbiofull)
+
+All the tools from the [DL in Biology, Jupyter version](#dl-in-biology-jupyter-version-jupdeepbio) are included. Other included packages are listed below.
+
+#### Python Tools
+
+- PyTorch Geometric
+- igraph
