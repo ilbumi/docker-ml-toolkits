@@ -1,0 +1,33 @@
+ARG IMAGE_PREFIX=ilbumi/python-toolkit
+ARG VERSION=UNKNOWN
+ARG BASE_IMAGE=$(IMAGE_PREFIX):$(VERSION)-devtorch
+ARG MAMBA_DOCKERFILE_ACTIVATE=1
+
+FROM ${BASE_IMAGE}
+
+USER root
+RUN --mount=type=cache,target=/var/cache/apt \
+    apt-get update && apt-get install -y \
+    zip unzip mafft ncbi-entrez-direct ncbi-blast+
+RUN cd /tmp && \
+    wget https://github.com/amkozlov/raxml-ng/releases/download/1.2.1/raxml-ng_v1.2.1_linux_x86_64.zip \
+    -O raxml-ng.zip && unzip raxml-ng.zip \
+    mv raxml-ng/raxml-ng /usr/local/bin/raxml-ng
+USER ${MAMBA_USER}
+
+COPY --chown=$MAMBA_USER:$MAMBA_USER environments/base.yaml /tmp/python.yaml
+COPY --chown=$MAMBA_USER:$MAMBA_USER environments/base.yaml /tmp/base.yaml
+COPY --chown=$MAMBA_USER:$MAMBA_USER environments/pytorch.yaml /tmp/pytorch.yaml
+COPY --chown=$MAMBA_USER:$MAMBA_USER environments/pytorch.yaml /tmp/biology.yaml
+COPY --chown=$MAMBA_USER:$MAMBA_USER scripts/merge_yamls.py /tmp/merge_yamls.py
+ARG MAMBA_DOCKERFILE_ACTIVATE=1
+RUN --mount=type=cache,target=/opt/conda/pkgs \
+    micromamba install -y \
+    --file /tmp/python.yaml
+RUN python /tmp/merge_yamls.py /tmp/env.yaml /tmp/python.yaml /tmp/base.yaml /tmp/pytorch.yaml /tmp/biology.yaml
+RUN --mount=type=cache,target=/opt/conda/pkgs \
+    micromamba install -y \
+    --file /tmp/env.yaml
+
+EXPOSE 8888
+WORKDIR /home/mambauser

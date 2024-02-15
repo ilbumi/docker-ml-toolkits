@@ -65,3 +65,22 @@ All the tools from the [Base Dev Image](#base-dev-image-devbase) are included. O
 - Transformers
 - Timm
 - PyTorch Lightning
+
+### DL in Biology (devdeepbio)
+
+All the tools from the [PyTorch Dev Image](#pytorch-dev-image-devtorch) are included. Other included packages are listed below.
+
+#### Non-python Tools
+
+- mafft
+- ncbi-entrez-direct
+- ncbi-blast+
+- RAxML-NG
+
+#### Python Tools
+
+##### Biology Toolkit
+
+- Biopython
+- ProDy
+- Scikit-Bio
