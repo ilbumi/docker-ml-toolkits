@@ -19,4 +19,4 @@ RUN --mount=type=cache,target=/opt/conda/pkgs \
     --file /tmp/env.yaml
 
 EXPOSE 8888
-WORKDIR /home/mambauser/data
+WORKDIR /home/mambauser
