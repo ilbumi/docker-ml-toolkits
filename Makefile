@@ -1,6 +1,6 @@
 BASE_IMAGE=mambaorg/micromamba:jammy-cuda-11.7.1
 IMAGE_PREFIX=ilbumi/python-toolkit
-VERSION=24.02.1
+VERSION=24.02.2
 export DOCKER_BUILDKIT=1
 
 build:
