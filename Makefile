@@ -16,6 +16,6 @@ build:
 
 push:
 	for file in Dockerfile.*; do \
-		docker push $(IMAGE_PREFIX):$(VERSION)-$$(echo $$file | sed -r "s/Dockerfile.[0-9]{3}.//")
+		docker push $(IMAGE_PREFIX):$(VERSION)-$$(echo $$file | sed -r "s/Dockerfile.[0-9]{3}.//"); \
 	done
 	
