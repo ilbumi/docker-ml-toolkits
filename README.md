@@ -48,6 +48,16 @@ The image is based on Python 3.11
 - catboost
 - imbalanced-learn
 
+##### Dev and Configuration
+
+- wandb
+- pydantic
+- hydra-core
+- ruff
+- mypy
+- bandit
+- pytest
+
 ### PyTorch Dev Image (devtorch)
 
 All the tools from the [Base Dev Image](#base-dev-image-devbase) are included. Other included packages are listed below.
