@@ -4,12 +4,8 @@ ARG MAMBA_DOCKERFILE_ACTIVATE=1
 
 FROM ${IMAGE_PREFIX}:${VERSION}-devbase
 
-COPY --chown=$MAMBA_USER:$MAMBA_USER environments/python.yaml /tmp/python.yaml
-COPY --chown=$MAMBA_USER:$MAMBA_USER environments/base.yaml /tmp/base.yaml
-COPY --chown=$MAMBA_USER:$MAMBA_USER environments/pytorch.yaml /tmp/pytorch.yaml
-COPY --chown=$MAMBA_USER:$MAMBA_USER scripts/merge_yamls.py /tmp/merge_yamls.py
+COPY --chown=$MAMBA_USER:$MAMBA_USER environments/pytorch.yaml /tmp/env.yaml
 ARG MAMBA_DOCKERFILE_ACTIVATE=1
-RUN python /tmp/merge_yamls.py /tmp/env.yaml /tmp/python.yaml /tmp/base.yaml /tmp/pytorch.yaml
 RUN --mount=type=cache,target=/opt/conda/pkgs \
     micromamba install -y \
     --file /tmp/env.yaml

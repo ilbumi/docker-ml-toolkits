@@ -10,15 +10,9 @@ USER ${MAMBA_USER}
 RUN mkdir /home/mambauser/projects
 RUN mkdir /home/mambauser/data
 
-COPY --chown=$MAMBA_USER:$MAMBA_USER environments/base.yaml /tmp/base.yaml
-COPY --chown=$MAMBA_USER:$MAMBA_USER environments/python.yaml /tmp/python.yaml
-COPY --chown=$MAMBA_USER:$MAMBA_USER scripts/merge_yamls.py /tmp/merge_yamls.py
+COPY --chown=$MAMBA_USER:$MAMBA_USER environments/base.yaml /tmp/env.yaml
 
 ARG MAMBA_DOCKERFILE_ACTIVATE=1
-RUN --mount=type=cache,target=/opt/conda/pkgs \
-    micromamba install -y \
-    --file /tmp/python.yaml
-RUN python /tmp/merge_yamls.py /tmp/env.yaml /tmp/base.yaml /tmp/python.yaml
 RUN --mount=type=cache,target=/opt/conda/pkgs \
     micromamba install -y \
     --file /tmp/env.yaml
